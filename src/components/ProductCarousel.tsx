@@ -110,12 +110,12 @@ const ProductCarousel = ({ title, products, className = "" }: ProductCarouselPro
 
         {/* Dots Indicator */}
         <div className="flex justify-center mt-8 space-x-2">
-          {Array.from({ length: Math.ceil(products.length / slidesToShow) }).map((_, index) => (
+          {Array.from({ length: Math.max(1, products.length - slidesToShow + 1) }).map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index * slidesToShow)}
+              onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                Math.floor(currentIndex / slidesToShow) === index
+                currentIndex === index
                   ? 'bg-accent scale-125'
                   : 'bg-neutral hover:bg-neutral-dark'
               }`}
