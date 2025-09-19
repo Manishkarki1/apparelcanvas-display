@@ -41,13 +41,13 @@ const ProductCarousel = ({ title, products, className = "" }: ProductCarouselPro
 
   const nextSlide = () => {
     setCurrentIndex((prev) => 
-      prev >= products.length - slidesToShow ? 0 : prev + 1
+      prev >= products.length - slidesToShow ? prev : prev + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prev) => 
-      prev <= 0 ? Math.max(0, products.length - slidesToShow) : prev - 1
+      prev <= 0 ? prev : prev - 1
     );
   };
 
